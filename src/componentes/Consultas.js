@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { DataCompradores } from "../assets/DataCompradores";
-import {Card,
-    CardText, 
-    CardBody,
-    CardTitle , Jumbotron} from 'reactstrap';
+import {Card, CardText,
+        CardTitle , Jumbotron} from 'reactstrap';
 import '../styles/consultas.scss'
 
 class Consultas extends Component {
@@ -17,22 +15,11 @@ class Consultas extends Component {
     render() {
         const usuarios = this.state.dataUser.map((userdataset) => {
             return (
-            <div  className="row">
-                <div className="d">
-                <Jumbotron key={userdataset.cedula} className="cards">
-                    <div className="">
-                    <CardTitle>Nombre: {userdataset.nombre}</CardTitle>
+                <Jumbotron key={userdataset.cedula} className="jumbo-card">
+                    <div className="card-title">
+                    <CardTitle className="card-title-scss">Nombre: {userdataset.nombre} telefono:{userdataset.telefono} Cedula: {userdataset.cedula}  <button type="submit " className="btn primary">Borrar</button></CardTitle>
                     </div>
-                    <div className="">
-                    <CardText>Cedula: {userdataset.cedula}</CardText>
-                    </div>
-                    <div className="">
-                    <CardText>telefono:{userdataset.telefono}</CardText>
-                    </div>
-                    <button type="submit  btn">Borrar</button>
                 </Jumbotron>
-                </div>
-            </div>
             );
         });
         return (

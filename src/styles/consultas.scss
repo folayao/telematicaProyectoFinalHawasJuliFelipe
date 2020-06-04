@@ -1,3 +1,17 @@
-.cards{
-    padding-left: 400px;
+.jumbo-card{
+    margin-left: 400px;
+    margin-right: 500px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    
+    .card-title{
+    
+    }
+    .card-title-scss{
+        
+        .btn{
+            border-color: black;
+            background: rgba(57, 66, 172, 0.578);
+        }
+    }
 }
