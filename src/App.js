@@ -21,6 +21,7 @@ function App() {
       <div className="container_two">
         <Form/>
       </div>
+      <button className="btn_primary">Guardar</button>
       <div className="container_three">
         <Consultas/>
       </div>

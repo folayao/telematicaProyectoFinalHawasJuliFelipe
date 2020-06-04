@@ -15,36 +15,33 @@ class Consultas extends Component {
     }
 
     render() {
-        const usuarios = this.state.dataUser.map((userdataset) => {
-            return (
-            <div  className="row">
-                <div className="d">
-                <Jumbotron key={userdataset.cedula} className="cards">
-                    <div className="">
-                    <CardTitle>Nombre: {userdataset.nombre}</CardTitle>
-                    </div>
-                    <div className="">
-                    <CardText>Cedula: {userdataset.cedula}</CardText>
-                    </div>
-                    <div className="">
-                    <CardText>telefono:{userdataset.telefono}</CardText>
-                    </div>
-                    <button type="submit  btn">Borrar</button>
-                </Jumbotron>
-                </div>
-            </div>
-            );
-        });
+        
         return (
-            <div className="">
-                <Card>
-                    <CardText>
-                        {usuarios}
-                        
-                    </CardText>
-                </Card>
-              
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Name </th>
+                        <th> Cedula </th>
+                        <th> Email </th>
+                        <th> Actions </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.dataUser.map((userdataset)=>(
+                            <tr key={userdataset.cedula}>
+                            <td> {userdataset.nombre} </td>
+                            <td> {userdataset.cedula} </td>
+                            <td> {userdataset.telefono} </td>
+                            <td>
+                                <button className="button">Edit</button>
+                                <button className="button">Delete</button>
+                            </td>                            
+                            </tr>
+                        ))
+                    }                    
+                </tbody>
+            </table>
         );
     } 
 }

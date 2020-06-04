@@ -9,15 +9,15 @@ const Form = () => {
     return (
         <Paper className="params" id="paperParams">
             <Grid container direction="row">
-                <Grid className="inputs" item xs={4}>
+                <Grid className="inputs" item xs={3}>
                     <label className="formulario1">Nombre</label>
                     <input type="text"  className="input1 form-control" placeholder="Nombre completo :3"/>
                 </Grid>
-                <Grid className="inputs" item xs={4}>
+                <Grid className="inputs" item xs={3}>
                     <label className="formulario1">Cedula</label>
                     <input type="text"  className="input1 form-control" placeholder="Cedula"/>
                 </Grid>
-                <Grid className="inputs" item xs={4}>
+                <Grid className="inputs" item xs={3}>
                     <label className="formulario1">Email</label>
                     <input type="text"  className="input1 form-control" placeholder="Correo electronico"/>
                 </Grid>
