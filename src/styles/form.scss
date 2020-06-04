@@ -1,29 +1,15 @@
-.container {
-    .labels {
-        div {
-            .formulario1 {
-                padding: 20px;
-            }
-            .input1 {
-                padding-right: 5px;
-            }
-            .formulario2 {
-                padding: 20px;
-            }
-            .input2 {
-                padding-right: 5px;
-            }
-            .formulario3{
-                padding: 20px;
-            }
-            .input3 {
-                padding-right: 5px;
-            }
+.params{
+    .grid-container{
+        .inputs{
+            padding: 20px;
         }
-    
-        button{
-            border-color: black;
-            margin-top: 35px;
-        }
+        
+            .btn{
+                margin: 30px;
+                
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        
     }
 }

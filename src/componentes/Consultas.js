@@ -30,12 +30,12 @@ class Consultas extends Component {
                     {
                         this.state.dataUser.map((userdataset)=>(
                             <tr key={userdataset.cedula}>
-                            <td> {userdataset.nombre} </td>
-                            <td> {userdataset.cedula} </td>
-                            <td> {userdataset.telefono} </td>
+                            <td className="tdclass"> {userdataset.nombre} </td>
+                            <td className="tdclass"> {userdataset.cedula} </td>
+                            <td className="tdclass"> {userdataset.telefono} </td>
                             <td>
-                                <button className="button">Edit</button>
-                                <button className="button">Delete</button>
+                                <button className="btn btn-primary">Edit</button>
+                                <button className="btn btn-danger">Delete</button>
                             </td>                            
                             </tr>
                         ))
