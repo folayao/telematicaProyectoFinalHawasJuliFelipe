@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* Componentes */
+import Form from "./componentes/Form";
+import Consultas from "./componentes/Consultas";
+/* Styles */
+import './styles/app.scss'
+import {Navbar, NavbarBrand} from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="subcontenedor">
+      <Navbar dark color="primary">
+        <div className="container">
+          <NavbarBrand href="/">
+            XYZ Enterprise
+          </NavbarBrand>
+        </div>
+      </Navbar>
+      </div>
+      <div className="container_two">
+        <Form/>
+      </div>
+      <div className="container_three">
+        <Consultas/>
+      </div>
     </div>
   );
 }
