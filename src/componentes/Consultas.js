@@ -11,7 +11,6 @@ class Consultas extends Component {
     }
 
     render() {
-        
         return (
             <table className="table table-striped">
                 <thead className="thead">
