@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import {FormGroup} from "reactstrap";
 import '../styles/form.scss'
 
 const Form = () => {
@@ -14,8 +13,8 @@ const Form = () => {
                     <input type="text"  className="input1 form-control" placeholder="Nombre completo"/>
                 </Grid>
                 <Grid className="inputs" item xs={3}>
-                    <label className="formulario1">Cedula</label>
-                    <input type="text"  className="input1 form-control" placeholder="Cedula"/>
+                    <label className="formulario1">Teléfono</label>
+                    <input type="text"  className="input1 form-control" placeholder="Celular"/>
                 </Grid>
                 <Grid className="inputs" item xs={3}>
                     <label className="formulario1">Email</label>
