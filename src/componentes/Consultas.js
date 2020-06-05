@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { DataCompradores } from "../assets/DataCompradores";
-import {Card, CardText,
-        CardTitle , Jumbotron} from 'reactstrap';
 import '../styles/consultas.scss'
 
 class Consultas extends Component {
@@ -13,25 +11,32 @@ class Consultas extends Component {
     }
 
     render() {
-        const usuarios = this.state.dataUser.map((userdataset) => {
-            return (
-                <Jumbotron key={userdataset.cedula} className="jumbo-card">
-                    <div className="card-title">
-                    <CardTitle className="card-title-scss">Nombre: {userdataset.nombre} telefono:{userdataset.telefono} Cedula: {userdataset.cedula}  <button type="submit " className="btn primary">Borrar</button></CardTitle>
-                    </div>
-                </Jumbotron>
-            );
-        });
         return (
-            <div className="">
-                <Card>
-                    <CardText>
-                        {usuarios}
-                        
-                    </CardText>
-                </Card>
-              
-            </div>
+            <table className="table table-striped">
+                <thead className="thead">
+                    <tr>
+                        <th> Nombre </th>
+                        <th> Teléfono </th>
+                        <th> Email </th>
+                        <th> Acciones </th>
+                    </tr>
+                </thead>
+                <tbody className="bodyTable">
+                    {
+                        this.state.dataUser.map((userdataset)=>(
+                            <tr key={userdataset.id}>
+                            <td className="tdclass"> {userdataset.name} </td>
+                            <td className="tdclass"> {userdataset.phoneNumber} </td>
+                            <td className="tdclass"> {userdataset.address} </td>
+                            <td className="buttons">
+                                <button className="btn btn-primary">Edit</button>
+                                <button className="btn btn-danger">Delete</button>
+                            </td>                            
+                            </tr>
+                        ))
+                    }                    
+                </tbody>
+            </table>
         );
     } 
 }

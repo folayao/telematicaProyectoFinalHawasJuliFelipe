@@ -1,29 +1,34 @@
 export const DataCompradores = 
     [
         {
-            cedula: 645138643,
-            nombre: "Felipe Olaya",
-            telefono: 28226194
+            id: "12394u23",
+            name: "Felipe Olaya",
+            phoneNumber: "3045392244",
+            address: "felipe@gmail.com"
         },
         {
-            cedula: 6854851,
-            nombre: "Julianny Restrepo",
-            telefono:846513648513 
+            id: "1asafeu24",
+            name: "Julianny Restrepo",
+            phoneNumber: "3010298343",
+            address: "juli@gmail.com" 
         },
         {
-            cedula:684351555 ,
-            nombre: "Hawasly",
-            telefono: 846513
+            id: "adrgred23",
+            name: "Santiago Rodriguez",
+            phoneNumber: "3034662244",
+            address: "hawasly@gmail.com"
         },
         {
-            cedula: 7895421,
-            nombre: "Peppa Pig",
-            telefono: 151515151515
+            id: "setfw43",
+            name: "Andres Lopez",
+            phoneNumber: "3123439244",
+            address: "andresbelo@gmail.com"
         },
         {
-            cedula:196354786 ,
-            nombre: "Petter Fella",
-            telefono:1666636 
+            id: "46srdgr",
+            name: "Camila Sanchez",
+            phoneNumber: "3043459674",
+            address: "camilita@gmail.com" 
         }
     ];
 
