@@ -1,9 +1,12 @@
-import axios from 'axios'
-import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import '../styles/consultas.scss'
-import { Modal, ModalBody, ModalHeader, Form } from 'reactstrap';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import React, { Component } from 'react';
+import axios from 'axios'
+import { Modal, ModalBody, ModalHeader} from 'reactstrap';
 
 class Consultas extends Component {
     
@@ -16,11 +19,11 @@ class Consultas extends Component {
         edit: false
     }
     
-    componentDidMount() {
-    axios.get(`http://localhost:5000/api/user`)
-        .then(res => {
-        const persons = res.data.users;
-        this.setState({ persons : persons });
+    componentDidMount = async ()  =>{
+        await axios.get(`http://localhost:5000/api/user/`)
+            .then(res => {
+            const persons = res.data.users;
+            this.setState({ persons : persons });
         })
     }
     
@@ -32,9 +35,9 @@ class Consultas extends Component {
         })
     }
 
-    handleUpdate = async (event) =>{  
+    handleUpdate = async () =>{  
         if(this.state.name!==''){
-            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "name": this.state.name            
             })
              .then(res => {
@@ -43,7 +46,7 @@ class Consultas extends Component {
               })
         }
         if(this.state.phoneNumber!==''){
-            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "phoneNumber": this.state.phoneNumber           
             })
              .then(res => {
@@ -52,7 +55,7 @@ class Consultas extends Component {
               })
         }
         if(this.state.address!==''){
-            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "address": this.state.address          
             })
              .then(res => {
@@ -62,10 +65,10 @@ class Consultas extends Component {
         }          
     }
 
-    handleSubmit = event => {
+    handleSubmit = async (event) => {
         event.preventDefault();
 
-        axios.post(`http://localhost:5000/api/user`, {
+        await axios.post(`http://35.226.254.9/api/user`, {
             "name": this.state.name,
             "phoneNumber": this.state.phoneNumber,
             "address": this.state.address
@@ -79,6 +82,7 @@ class Consultas extends Component {
     openWindow=(ide)=>{
         this.setState({edit: true})
         this.setState({id: ide})
+        console.log(ide)
     }
 
     closeWindow=()=>{
@@ -101,7 +105,7 @@ class Consultas extends Component {
         return (
             <div className="page">
                 <Paper className="params" id="paperParams">                    
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={(event) => this.handleSubmit(event)}>
                         <Grid container direction="row" className="grid-container">
                             <Grid className="inputs" item xs={3}>
                                 <label className="formulario1">Nombre</label>
@@ -131,13 +135,17 @@ class Consultas extends Component {
                     <tbody className="bodyTable">
                         {
                             this.state.persons.map((person)=>(
-                                <tr key={person.id}>
+                                <tr key={person._id}>
                                     <td className="tdclass"> {person.name}</td>
                                     <td className="tdclass"> {person.phoneNumber} </td>
                                     <td className="tdclass"> {person.address} </td>
                                     <td className="buttons">
-                                        <button className="btn btn-primary" onClick={() => this.openWindow(person._id)}>Edit</button>
-                                        <button className="btn btn-danger" onClick={() => this.handleDelete(person._id)}>Delete</button>
+                                        <IconButton aria-label="edit" className="button2" color="primary" onClick={() => this.openWindow(person._id)}>
+                                            <EditIcon />
+                                        </IconButton>
+                                        <IconButton aria-label="delete" className="button2" color="secondary" onClick={() => this.handleDelete(person._id)}>
+                                            <DeleteIcon />
+                                        </IconButton>
                                     </td>                            
                                 </tr>
                             ))
