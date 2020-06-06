@@ -1,14 +1,21 @@
+import axios from 'axios'
 import React, { Component } from 'react';
-import { DataCompradores } from "../assets/DataCompradores";
 import '../styles/consultas.scss'
 
 class Consultas extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            dataUser: DataCompradores
-        }
+    
+    state = {
+        persons: []
     }
+    
+    componentDidMount() {
+    axios.get(`http://localhost:5000/api/user`)
+        .then(res => {
+        const persons = res.data.users;
+        this.setState({ persons });
+        })
+    }
+    
 
     render() {
         return (
@@ -23,11 +30,11 @@ class Consultas extends Component {
                 </thead>
                 <tbody className="bodyTable">
                     {
-                        this.state.dataUser.map((userdataset)=>(
-                            <tr key={userdataset.id}>
-                            <td className="tdclass"> {userdataset.name} </td>
-                            <td className="tdclass"> {userdataset.phoneNumber} </td>
-                            <td className="tdclass"> {userdataset.address} </td>
+                        this.state.persons.map((person)=>(
+                            <tr key={person.id}>
+                            <td className="tdclass"> {person.name} </td>
+                            <td className="tdclass"> {person.phoneNumber} </td>
+                            <td className="tdclass"> {person.address} </td>
                             <td className="buttons">
                                 <button className="btn btn-primary">Edit</button>
                                 <button className="btn btn-danger">Delete</button>
@@ -35,7 +42,7 @@ class Consultas extends Component {
                             </tr>
                         ))
                     }                    
-                </tbody>
+                </tbody> 
             </table>
         );
     } 

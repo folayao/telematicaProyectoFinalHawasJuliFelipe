@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import '../styles/form.scss'
 
 const Form = () => {
-
+    
     return (
         <Paper className="params" id="paperParams">
             <Grid container direction="row" className="grid-container">
