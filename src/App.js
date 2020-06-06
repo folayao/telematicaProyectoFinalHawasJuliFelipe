@@ -1,6 +1,5 @@
 import React from 'react';
 /* Componentes */
-import Form from "./componentes/Form";
 import Consultas from "./componentes/Consultas";
 /* Styles */
 import './styles/app.scss'
@@ -17,10 +16,6 @@ function App() {
           </NavbarBrand>
         </div>
       </Navbar>
-      </div>
-      <div className="container_two">
-        <Form/>
-        
       </div>
       <div className="container_three">
         <Consultas/>
