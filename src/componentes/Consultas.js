@@ -35,9 +35,9 @@ class Consultas extends Component {
         })
     }
 
-    handleUpdate = async () =>{  
+    handleUpdate = async (event) =>{  
         if(this.state.name!==''){
-            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "name": this.state.name            
             })
              .then(res => {
@@ -46,7 +46,7 @@ class Consultas extends Component {
               })
         }
         if(this.state.phoneNumber!==''){
-            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "phoneNumber": this.state.phoneNumber           
             })
              .then(res => {
@@ -55,7 +55,7 @@ class Consultas extends Component {
               })
         }
         if(this.state.address!==''){
-            await axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
+            axios.patch(`http://localhost:5000/api/user/${this.state.id}`, {
                 "address": this.state.address          
             })
              .then(res => {
@@ -82,7 +82,7 @@ class Consultas extends Component {
     openWindow=(ide)=>{
         this.setState({edit: true})
         this.setState({id: ide})
-        console.log(ide)
+        console.log(this.state.id)
     }
 
     closeWindow=()=>{
